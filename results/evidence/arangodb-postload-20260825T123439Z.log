@@ -1,0 +1,40 @@
+2026-08-25T12:02:37.539820Z [1-2] INFO [e52b0] {general} ArangoDB 3.12.7-2 enterprise [linux] 64bit, using jemalloc, build refs/tags/v3.12.7.2 91887006ed8, VPack 0.2.1, RocksDB 9.6.0, ICU 64.2, V8 12.1.165, OpenSSL 3.5.4 30 Sep 2025, build-id: 17f7918c84b79ccd895b783748f8480348669c91
+2026-08-25T12:02:37.539828Z [1-2] INFO [11111] {general} This executable uses the GNU C library (glibc), which is licensed under the GNU Lesser General Public License (LGPL), see https://www.gnu.org/copyleft/lesser.html and https://www.gnu.org/licenses/gpl.html
+2026-08-25T12:02:37.540368Z [1-2] INFO [a1c60] {syscall} file-descriptors (nofiles) hard limit is 1048576, soft limit is 1048576
+2026-08-25T12:02:37.540620Z [1-2] INFO [75ddc] {general} detected operating system: Linux version 6.6.87.2-microsoft-standard-WSL2 (root@439a258ad544) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.37) #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025
+2026-08-25T12:02:37.540641Z [1-2] INFO [25362] {memory} Available physical memory: 536870912 bytes (overriden by environment variable), available cores: 1 (overriden by environment variable)
+2026-08-25T12:02:37.640569Z [1-2] INFO [3bb7d] {cluster} Starting up with role SINGLE
+2026-08-25T12:02:38.305383Z [1-2] INFO [fe333] {engines} RocksDB recovery starting, scanning WAL starting from sequence number 89, latest sequence number: 154, active log files: 4, files in archive: 25
+2026-08-25T12:02:38.306171Z [1-2] INFO [a4ec8] {engines} RocksDB recovery finished, WAL entries scanned: 68, recovery start sequence number: 89, latest WAL sequence number: 154, max tick value found in WAL: 0, last HLC value found in WAL: 1874496694243033088
+2026-08-25T12:02:39.543448Z [1-2] INFO [c1b63] {arangosearch} ArangoSearch maintenance: [1..1] commit thread(s), [1..1] consolidation thread(s). ArangoSearch execution parallel threads limit: 2
+2026-08-25T12:02:39.543504Z [1-2] INFO [c2c74] {arangosearch} ArangoSearch columns cache limit: 0
+2026-08-25T12:02:39.570755Z [1-2] INFO [6ea38] {general} using endpoint 'http+tcp://0.0.0.0:8529' for non-encrypted requests
+2026-08-25T12:02:39.720486Z [1-2] INFO [cf3f4] {general} ArangoDB (version 3.12.7-2 enterprise [linux]) is ready for business. Have fun!
+2026-08-25T12:04:21.543842Z [1-2] INFO [b4133] {general} SIGTERM received (sender pid 0), beginning shut down sequence
+2026-08-25T12:04:22.355180Z [1-2] INFO [4bcb9] {general} ArangoDB has been shut down
+2026-08-25T12:27:45.824166Z [1-2] INFO [e52b0] {general} ArangoDB 3.12.7-2 enterprise [linux] 64bit, using jemalloc, build refs/tags/v3.12.7.2 91887006ed8, VPack 0.2.1, RocksDB 9.6.0, ICU 64.2, V8 12.1.165, OpenSSL 3.5.4 30 Sep 2025, build-id: 17f7918c84b79ccd895b783748f8480348669c91
+2026-08-25T12:27:45.824204Z [1-2] INFO [11111] {general} This executable uses the GNU C library (glibc), which is licensed under the GNU Lesser General Public License (LGPL), see https://www.gnu.org/copyleft/lesser.html and https://www.gnu.org/licenses/gpl.html
+2026-08-25T12:27:45.825631Z [1-2] INFO [a1c60] {syscall} file-descriptors (nofiles) hard limit is 1048576, soft limit is 1048576
+2026-08-25T12:27:45.825871Z [1-2] INFO [75ddc] {general} detected operating system: Linux version 6.6.87.2-microsoft-standard-WSL2 (root@439a258ad544) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.37) #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025
+2026-08-25T12:27:45.825894Z [1-2] INFO [25362] {memory} Available physical memory: 536870912 bytes (overriden by environment variable), available cores: 1 (overriden by environment variable)
+2026-08-25T12:27:45.970861Z [1-2] INFO [3bb7d] {cluster} Starting up with role SINGLE
+2026-08-25T12:27:46.724114Z [1-2] INFO [fe333] {engines} RocksDB recovery starting, scanning WAL starting from sequence number 444661, latest sequence number: 444798, active log files: 6, files in archive: 10
+2026-08-25T12:27:46.724968Z [1-2] INFO [a4ec8] {engines} RocksDB recovery finished, WAL entries scanned: 140, recovery start sequence number: 444661, latest WAL sequence number: 444798, max tick value found in WAL: 0, last HLC value found in WAL: 1874496807006896128
+2026-08-25T12:27:47.925601Z [1-2] INFO [c1b63] {arangosearch} ArangoSearch maintenance: [1..1] commit thread(s), [1..1] consolidation thread(s). ArangoSearch execution parallel threads limit: 2
+2026-08-25T12:27:47.925610Z [1-2] INFO [c2c74] {arangosearch} ArangoSearch columns cache limit: 0
+2026-08-25T12:27:47.943738Z [1-2] INFO [6ea38] {general} using endpoint 'http+tcp://0.0.0.0:8529' for non-encrypted requests
+2026-08-25T12:27:48.049224Z [1-2] INFO [cf3f4] {general} ArangoDB (version 3.12.7-2 enterprise [linux]) is ready for business. Have fun!
+2026-08-25T12:27:59.561246Z [1-2] INFO [b4133] {general} SIGTERM received (sender pid 0), beginning shut down sequence
+2026-08-25T12:28:00.235398Z [1-2] INFO [4bcb9] {general} ArangoDB has been shut down
+2026-08-25T12:34:31.876440Z [1-2] INFO [e52b0] {general} ArangoDB 3.12.7-2 enterprise [linux] 64bit, using jemalloc, build refs/tags/v3.12.7.2 91887006ed8, VPack 0.2.1, RocksDB 9.6.0, ICU 64.2, V8 12.1.165, OpenSSL 3.5.4 30 Sep 2025, build-id: 17f7918c84b79ccd895b783748f8480348669c91
+2026-08-25T12:34:31.876531Z [1-2] INFO [11111] {general} This executable uses the GNU C library (glibc), which is licensed under the GNU Lesser General Public License (LGPL), see https://www.gnu.org/copyleft/lesser.html and https://www.gnu.org/licenses/gpl.html
+2026-08-25T12:34:31.878486Z [1-2] INFO [a1c60] {syscall} file-descriptors (nofiles) hard limit is 1048576, soft limit is 1048576
+2026-08-25T12:34:31.878876Z [1-2] INFO [75ddc] {general} detected operating system: Linux version 6.6.87.2-microsoft-standard-WSL2 (root@439a258ad544) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.37) #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025
+2026-08-25T12:34:31.878910Z [1-2] INFO [25362] {memory} Available physical memory: 536870912 bytes (overriden by environment variable), available cores: 1 (overriden by environment variable)
+2026-08-25T12:34:31.905526Z [1-2] INFO [3bb7d] {cluster} Starting up with role SINGLE
+2026-08-25T12:34:32.469823Z [1-2] INFO [fe333] {engines} RocksDB recovery starting, scanning WAL starting from sequence number 444881, latest sequence number: 445028, active log files: 3, files in archive: 24
+2026-08-25T12:34:32.470635Z [1-2] INFO [a4ec8] {engines} RocksDB recovery finished, WAL entries scanned: 148, recovery start sequence number: 444881, latest WAL sequence number: 445028, max tick value found in WAL: 0, last HLC value found in WAL: 0
+2026-08-25T12:34:33.303059Z [1-2] INFO [c1b63] {arangosearch} ArangoSearch maintenance: [1..1] commit thread(s), [1..1] consolidation thread(s). ArangoSearch execution parallel threads limit: 2
+2026-08-25T12:34:33.303068Z [1-2] INFO [c2c74] {arangosearch} ArangoSearch columns cache limit: 0
+2026-08-25T12:34:33.303830Z [1-2] INFO [6ea38] {general} using endpoint 'http+tcp://0.0.0.0:8529' for non-encrypted requests
+2026-08-25T12:34:33.399672Z [1-2] INFO [cf3f4] {general} ArangoDB (version 3.12.7-2 enterprise [linux]) is ready for business. Have fun!

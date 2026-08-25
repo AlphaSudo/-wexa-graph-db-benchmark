@@ -1,0 +1,10 @@
+[2026-08-25 12:04:38.576] [warning] --metrics-format=JSON is deprecated and will be removed in a future release. Please use OpenMetrics instead.
+You are running Memgraph v3.12.0
+To get started with Memgraph, visit https://memgr.ph/start
+[2026-08-25 12:07:38.231] [warning] --metrics-format=JSON is deprecated and will be removed in a future release. Please use OpenMetrics instead.
+You are running Memgraph v3.12.0
+To get started with Memgraph, visit https://memgr.ph/start
+[2026-08-25 12:12:48.158] [warning] --metrics-format=JSON is deprecated and will be removed in a future release. Please use OpenMetrics instead.
+You are running Memgraph v3.12.0
+To get started with Memgraph, visit https://memgr.ph/start
+The process is running as user memgraph, but '/var/lib/memgraph' is owned by user root. Please start the process as user root!

@@ -1,0 +1,92 @@
+schema_version: 1
+run_label: official
+seed: 20260825
+target_order:
+  - arangodb-capped
+  - falkordb-capped
+  - memgraph-capped
+  - neo4j-aura-free
+  - neo4j-ce-capped
+  - cognodb-c0
+dataset:
+  name: ml-latest-small
+  url: https://files.grouplens.org/datasets/movielens/ml-latest-small.zip
+  expected_users: 610
+  expected_movies: 9742
+  expected_relationships: 100836
+  query_starts_per_bucket: 25
+benchmark:
+  batch_size: 250
+  warmup_operations: 30
+  measured_operations: 100
+  sessions: 3
+  timeout_seconds: 15.0
+  mixed_duration_seconds: 60
+  mixed_concurrency: [1, 5, 10, 20, 40]
+  mixes:
+    read-heavy: 0.95
+    mixed: 0.80
+  open_loop_rate: 100
+  minimum_success_rate: 0.95
+targets:
+  cognodb-c0:
+    adapter: cypher
+    dialect: neo4j
+    deployment: managed
+    enabled: true
+    uri_env: COGNODB_URI
+    username_env: COGNODB_USERNAME
+    password_env: COGNODB_PASSWORD
+    database: neo4j
+  neo4j-aura-free:
+    adapter: cypher
+    dialect: neo4j
+    deployment: managed
+    enabled: true
+    uri_env: AURA_URI
+    username_env: AURA_USERNAME
+    password_env: AURA_PASSWORD
+    database: neo4j
+  neo4j-ce-capped:
+    adapter: cypher
+    dialect: neo4j
+    deployment: controlled-local
+    enabled: true
+    uri_env: LOCAL_NEO4J_URI
+    uri_default: bolt://localhost:7687
+    database: neo4j
+    container_name: wexa-neo4j
+    data_directory: /data
+    storage_mount: /var/lib/wexa-benchmark-storage/neo4j
+  memgraph-capped:
+    adapter: cypher
+    dialect: memgraph
+    deployment: controlled-local
+    enabled: true
+    uri_env: MEMGRAPH_URI
+    uri_default: bolt://localhost:7688
+    container_name: wexa-memgraph
+    data_directory: /var/lib/memgraph
+    storage_mount: /var/lib/wexa-benchmark-storage/memgraph
+  falkordb-capped:
+    adapter: falkordb
+    deployment: controlled-local
+    enabled: true
+    host_env: FALKORDB_HOST
+    host_default: localhost
+    port_env: FALKORDB_PORT
+    port_default: "6380"
+    graph: movielens
+    container_name: wexa-falkordb
+    data_directory: /data
+    storage_mount: /var/lib/wexa-benchmark-storage/falkordb
+  arangodb-capped:
+    adapter: arangodb
+    deployment: controlled-local
+    enabled: true
+    url_env: ARANGODB_URL
+    url_default: http://localhost:18529
+    database: movielens
+    container_name: wexa-arangodb
+    data_directory: /var/lib/arangodb3
+    storage_mount: /var/lib/wexa-benchmark-storage/arangodb

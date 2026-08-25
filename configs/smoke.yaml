@@ -1,0 +1,71 @@
+schema_version: 1
+run_label: smoke
+seed: 20260825
+target_order:
+  - arangodb-capped
+  - falkordb-capped
+  - memgraph-capped
+  - neo4j-ce-capped
+dataset:
+  name: ml-latest-small
+  url: https://files.grouplens.org/datasets/movielens/ml-latest-small.zip
+  expected_users: 610
+  expected_movies: 9742
+  expected_relationships: 100836
+  query_starts_per_bucket: 4
+benchmark:
+  batch_size: 100
+  warmup_operations: 2
+  measured_operations: 5
+  sessions: 1
+  timeout_seconds: 15.0
+  mixed_duration_seconds: 3
+  mixed_concurrency: [1, 2]
+  mixes:
+    mixed: 0.80
+  open_loop_rate: 10
+  minimum_success_rate: 0.80
+targets:
+  neo4j-ce-capped:
+    adapter: cypher
+    dialect: neo4j
+    deployment: controlled-local
+    enabled: true
+    uri_env: LOCAL_NEO4J_URI
+    uri_default: bolt://localhost:7687
+    database: neo4j
+    container_name: wexa-neo4j
+    data_directory: /data
+    storage_mount: /var/lib/wexa-benchmark-storage/neo4j
+  memgraph-capped:
+    adapter: cypher
+    dialect: memgraph
+    deployment: controlled-local
+    enabled: true
+    uri_env: MEMGRAPH_URI
+    uri_default: bolt://localhost:7688
+    container_name: wexa-memgraph
+    data_directory: /var/lib/memgraph
+    storage_mount: /var/lib/wexa-benchmark-storage/memgraph
+  falkordb-capped:
+    adapter: falkordb
+    deployment: controlled-local
+    enabled: true
+    host_env: FALKORDB_HOST
+    host_default: localhost
+    port_env: FALKORDB_PORT
+    port_default: "6380"
+    graph: movielens
+    container_name: wexa-falkordb
+    data_directory: /data
+    storage_mount: /var/lib/wexa-benchmark-storage/falkordb
+  arangodb-capped:
+    adapter: arangodb
+    deployment: controlled-local
+    enabled: true
+    url_env: ARANGODB_URL
+    url_default: http://localhost:18529
+    database: movielens
+    container_name: wexa-arangodb
+    data_directory: /var/lib/arangodb3
+    storage_mount: /var/lib/wexa-benchmark-storage/arangodb

@@ -1,0 +1,102 @@
+name: wexa-graph-benchmark
+
+x-resource-limits: &resource-limits
+  cpus: 0.5
+  mem_limit: 512m
+  memswap_limit: 512m
+  pids_limit: 256
+  restart: "no"
+
+services:
+  neo4j:
+    <<: *resource-limits
+    profiles: [neo4j]
+    image: neo4j:5.26.30-community
+    container_name: wexa-neo4j
+    ports:
+      - "127.0.0.1:7474:7474"
+      - "127.0.0.1:7687:7687"
+    environment:
+      NEO4J_AUTH: none
+      NEO4J_server_memory_heap_initial__size: 128m
+      NEO4J_server_memory_heap_max__size: 128m
+      NEO4J_server_memory_pagecache_size: 64m
+      NEO4J_dbms_memory_transaction_total_max: 32m
+      NEO4J_db_memory_transaction_max: 32m
+      NEO4J_server_jvm_additional: -XX:+ExitOnOutOfMemoryError
+    volumes:
+      - type: bind
+        source: /var/lib/wexa-benchmark-storage/neo4j
+        target: /data
+      - neo4j_official_logs:/logs
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://localhost:7474 || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 24
+
+  memgraph:
+    <<: *resource-limits
+    profiles: [memgraph]
+    image: memgraph/memgraph:3.12.0
+    container_name: wexa-memgraph
+    ports:
+      - "127.0.0.1:7688:7687"
+    command:
+      - --storage-mode=IN_MEMORY_TRANSACTIONAL
+      - --log-level=WARNING
+    volumes:
+      - type: bind
+        source: /var/lib/wexa-benchmark-storage/memgraph
+        target: /var/lib/memgraph
+
+  falkordb:
+    <<: *resource-limits
+    profiles: [falkordb]
+    image: falkordb/falkordb-server:v4.18.8
+    container_name: wexa-falkordb
+    ports:
+      - "127.0.0.1:6380:6379"
+    environment:
+      REDIS_ARGS: >-
+        --appendonly no
+        --save ""
+        --maxmemory 384mb
+        --maxmemory-policy noeviction
+      FALKORDB_ARGS: THREAD_COUNT 1 TIMEOUT_MAX 15000
+    volumes:
+      - type: bind
+        source: /var/lib/wexa-benchmark-storage/falkordb
+        target: /data
+
+  arangodb:
+    <<: *resource-limits
+    profiles: [arangodb]
+    image: arangodb:3.12.7
+    container_name: wexa-arangodb
+    ports:
+      - "127.0.0.1:18529:8529"
+    environment:
+      ARANGO_NO_AUTH: "1"
+      ARANGODB_OVERRIDE_DETECTED_TOTAL_MEMORY: "536870912"
+      ARANGODB_OVERRIDE_DETECTED_NUMBER_OF_CORES: "1"
+    command:
+      - arangod
+      - --server.endpoint=tcp://0.0.0.0:8529
+      - --rocksdb.block-cache-size=134217728
+      - --rocksdb.total-write-buffer-size=67108864
+      - --rocksdb.num-threads-priority-high=1
+      - --rocksdb.num-threads-priority-low=1
+      - --query.memory-limit=67108864
+      - --query.global-memory-limit=134217728
+      - --server.maximal-threads=5
+      - --server.statistics=true
+    volumes:
+      - type: bind
+        source: /var/lib/wexa-benchmark-storage/arangodb
+        target: /var/lib/arangodb3
+      - arangodb_apps:/var/lib/arangodb3-apps
+
+volumes:
+  neo4j_official_logs:
+  arangodb_apps:

@@ -1,0 +1,91 @@
+{
+  "schema_version": 2,
+  "recorded_at_utc": "2026-08-25T12:34:46.8552802Z",
+  "service": "arangodb",
+  "phase": "postload",
+  "container_name": "wexa-arangodb",
+  "image": "docker.io/library/arangodb:3.12.7",
+  "image_id": "bcd585c369163b995266b61220d41c09f23157d76643715b61a8c4adf85de15c",
+  "repo_digests": [
+    "docker.io/library/arangodb@sha256:446af65ea9b7121a925610aeb01a09a14b52087e75da4a435c4c5e2048d856b6",
+    "docker.io/library/arangodb@sha256:d89d6b6b27e0593e47ec16bcf6374445ce78f429517aa811bf2fec69be86d0ba"
+  ],
+  "state": {
+    "status": "running",
+    "oom_killed": false,
+    "exit_code": 0,
+    "restart_count": 0
+  },
+  "limits": {
+    "nano_cpus": 500000000,
+    "memory_bytes": 536870912,
+    "memory_swap_bytes": 536870912,
+    "pids_limit": 256
+  },
+  "cgroup": {
+    "memory.max": "536870912",
+    "memory.swap.max": "0",
+    "pids.max": "256",
+    "cpu.max": "50000 100000",
+    "memory.current": "200806400"
+  },
+  "cgroup_memory": {
+    "slab": "1629488",
+    "event_oom": "0",
+    "kernel": "4919296",
+    "pagetables": "1953792",
+    "event_high": "0",
+    "event_max": "0",
+    "shmem": "0",
+    "sock": "0",
+    "event_low": "0",
+    "anon": "191541248",
+    "file": "1482752",
+    "kernel_stack": "835584",
+    "event_oom_group_kill": "0",
+    "event_oom_kill": "0"
+  },
+  "published_ports": [
+    "8529/tcp -> 127.0.0.1:18529"
+  ],
+  "host_storage_mount": [
+    "/var/lib/wexa-benchmark-storage/arangodb /dev/loop3 ext4 1020702720 855404544 94834688 rw,nosuid,nodev,noexec,relatime"
+  ],
+  "host_storage_usage": [
+    "22999102\t/var/lib/wexa-benchmark-storage/arangodb"
+  ],
+  "container_filesystem": [
+    "Filesystem           1-blocks       Used Available Use% Mounted on",
+    "/dev/loop3           1020702720  94834688 855404544  10% /var/lib/arangodb3"
+  ],
+  "mounts": [
+    {
+      "type": "volume",
+      "source": "/home/user/.local/share/containers/storage/volumes/wexa-graph-benchmark_arangodb_apps/_data",
+      "name": "wexa-graph-benchmark_arangodb_apps",
+      "destination": "/var/lib/arangodb3-apps",
+      "options": [
+        "nosuid",
+        "nodev",
+        "rbind"
+      ]
+    },
+    {
+      "type": "bind",
+      "source": "/var/lib/wexa-benchmark-storage/arangodb",
+      "name": null,
+      "destination": "/var/lib/arangodb3",
+      "options": [
+        "noexec",
+        "nosuid",
+        "nodev",
+        "rbind"
+      ]
+    }
+  ],
+  "startup_log": {
+    "file": "arangodb-postload-20260825T123439Z.log",
+    "sha256": "f55c4ff75a076f86396ac8fb4151510e267d0cfa42479bcf69679f02016ed2a0",
+    "tail_lines": 500
+  }
+}
