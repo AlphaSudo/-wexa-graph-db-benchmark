@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "recorded_at_utc": "2026-08-25T14:14:24.9033332Z",
+  "service": "neo4j",
+  "phase": "postrun",
+  "container_name": "wexa-neo4j",
+  "image": "docker.io/library/neo4j:5.26.30-community",
+  "image_id": "8ccf5ebc4812295e1cc59ad9ce2fa9f1d8a4d167cbb8198c716f09d5a848cfec",
+  "repo_digests": [
+    "docker.io/library/neo4j@sha256:037cf5756f0135cbfd66b739b6df7c7c4bb100f9ce11602f6f9538e17e02c74d",
+    "docker.io/library/neo4j@sha256:b7deccb0181b9ad9cbeaf1728d099066fe30210e42bf1e1295da1c587eee4012"
+  ],
+  "state": {
+    "status": "running",
+    "oom_killed": false,
+    "exit_code": 0,
+    "restart_count": 0
+  },
+  "limits": {
+    "nano_cpus": 500000000,
+    "memory_bytes": 536870912,
+    "memory_swap_bytes": 536870912,
+    "pids_limit": 256
+  },
+  "cgroup": {
+    "memory.current": "536797184",
+    "pids.max": "256",
+    "memory.max": "536870912",
+    "memory.swap.max": "0",
+    "cpu.max": "50000 100000"
+  },
+  "cgroup_memory": {
+    "sock": "0",
+    "anon": "525717504",
+    "shmem": "0",
+    "event_low": "0",
+    "event_high": "0",
+    "slab": "5223312",
+    "kernel_stack": "1490944",
+    "pagetables": "1757184",
+    "file": "1314816",
+    "event_oom_kill": "0",
+    "event_oom": "0",
+    "event_oom_group_kill": "0",
+    "event_max": "1936",
+    "kernel": "8978432"
+  },
+  "published_ports": [
+    "7474/tcp -> 127.0.0.1:7474",
+    "7687/tcp -> 127.0.0.1:7687"
+  ],
+  "host_storage_mount": [
+    "/var/lib/wexa-benchmark-storage/neo4j /dev/loop0 ext4 1020702720 393138176 557101056 rw,nosuid,nodev,noexec,relatime"
+  ],
+  "host_storage_usage": [
+    "556640909\t/var/lib/wexa-benchmark-storage/neo4j"
+  ],
+  "container_filesystem": [
+    "Filesystem      1B-blocks      Used Available Use% Mounted on",
+    "/dev/loop0     1020702720 557101056 393138176  59% /data"
+  ],
+  "mounts": [
+    {
+      "type": "volume",
+      "source": "/home/user/.local/share/containers/storage/volumes/wexa-graph-benchmark_neo4j_official_logs/_data",
+      "name": "wexa-graph-benchmark_neo4j_official_logs",
+      "destination": "/logs",
+      "options": [
+        "nosuid",
+        "nodev",
+        "rbind"
+      ]
+    },
+    {
+      "type": "bind",
+      "source": "/var/lib/wexa-benchmark-storage/neo4j",
+      "name": null,
+      "destination": "/data",
+      "options": [
+        "noexec",
+        "nosuid",
+        "nodev",
+        "rbind"
+      ]
+    }
+  ],
+  "startup_log": {
+    "file": "neo4j-postrun-20260825T141417Z.log",
+    "sha256": "e214015e20ffcb09a4d4ef7131883d275729f8cebf7b96350df79c4899ac55d8",
+    "tail_lines": 500
+  }
+}

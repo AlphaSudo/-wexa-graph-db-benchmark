@@ -1,0 +1,102 @@
+{
+  "schema_version": 2,
+  "recorded_at_utc": "2026-08-25T13:49:28.3292180Z",
+  "service": "memgraph",
+  "phase": "postrun",
+  "container_name": "wexa-memgraph",
+  "image": "docker.io/memgraph/memgraph:3.12.0",
+  "image_id": "e57cdd6a27c909d16b38d69bf1dc744b9707f966bc82c139ebe2c76e7187de14",
+  "repo_digests": [
+    "docker.io/memgraph/memgraph@sha256:854d7de6dec74f867724cab07db661262e824381ed9a0e1d682c7a07b9357c6a",
+    "docker.io/memgraph/memgraph@sha256:c162cb9a6f76dac6080119da919d9b36e69c8b982af7bf34dd7df2b3723bd69c"
+  ],
+  "state": {
+    "status": "running",
+    "oom_killed": false,
+    "exit_code": 0,
+    "restart_count": 0
+  },
+  "limits": {
+    "nano_cpus": 500000000,
+    "memory_bytes": 536870912,
+    "memory_swap_bytes": 536870912,
+    "pids_limit": 256
+  },
+  "cgroup": {
+    "memory.current": "426393600",
+    "pids.max": "256",
+    "memory.max": "536870912",
+    "memory.swap.max": "0",
+    "cpu.max": "50000 100000"
+  },
+  "cgroup_memory": {
+    "sock": "0",
+    "anon": "116375552",
+    "shmem": "0",
+    "event_low": "0",
+    "event_high": "0",
+    "slab": "7104256",
+    "kernel_stack": "655360",
+    "pagetables": "933888",
+    "file": "232603648",
+    "event_oom_kill": "0",
+    "event_oom": "0",
+    "event_oom_group_kill": "0",
+    "event_max": "0",
+    "kernel": "9105408"
+  },
+  "published_ports": [
+    "7687/tcp -> 127.0.0.1:7688"
+  ],
+  "host_storage_mount": [
+    "/var/lib/wexa-benchmark-storage/memgraph /dev/loop1 ext4 1020702720 568336384 381902848 rw,nosuid,nodev,noexec,relatime"
+  ],
+  "host_storage_usage": [
+    "48320720\t/var/lib/wexa-benchmark-storage/memgraph"
+  ],
+  "container_filesystem": [
+    "Filesystem      1B-blocks      Used Available Use% Mounted on",
+    "/dev/loop1     1020702720 381902848 568336384  41% /var/lib/memgraph"
+  ],
+  "mounts": [
+    {
+      "type": "volume",
+      "source": "/home/user/.local/share/containers/storage/volumes/40747a4f01d4f065ba7d632ff284ea4484953fd384dc46d59381fdc27dc66d41/_data",
+      "name": "40747a4f01d4f065ba7d632ff284ea4484953fd384dc46d59381fdc27dc66d41",
+      "destination": "/etc/memgraph",
+      "options": [
+        "nosuid",
+        "nodev",
+        "rbind"
+      ]
+    },
+    {
+      "type": "volume",
+      "source": "/home/user/.local/share/containers/storage/volumes/9b8a2b5407cca8c7fa6cdcb461b7a8b9e8e5ef44090f3ccedb1b5dc24eb14abe/_data",
+      "name": "9b8a2b5407cca8c7fa6cdcb461b7a8b9e8e5ef44090f3ccedb1b5dc24eb14abe",
+      "destination": "/var/log/memgraph",
+      "options": [
+        "nosuid",
+        "nodev",
+        "rbind"
+      ]
+    },
+    {
+      "type": "bind",
+      "source": "/var/lib/wexa-benchmark-storage/memgraph",
+      "name": null,
+      "destination": "/var/lib/memgraph",
+      "options": [
+        "noexec",
+        "nosuid",
+        "nodev",
+        "rbind"
+      ]
+    }
+  ],
+  "startup_log": {
+    "file": "memgraph-postrun-20260825T134921Z.log",
+    "sha256": "441c43fb129a46fe208f04a8c54dcbfe549d5c8b25f92c7008e871a789fdc801",
+    "tail_lines": 500
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 2,
+  "recorded_at_utc": "2026-08-25T13:26:59.2264747Z",
+  "service": "falkordb",
+  "phase": "postrun",
+  "container_name": "wexa-falkordb",
+  "image": "docker.io/falkordb/falkordb-server:v4.18.8",
+  "image_id": "701d62b09d193dffc4f8ad73bcc973d04f596a6f46fcca71f2968879b3bb9ae6",
+  "repo_digests": [
+    "docker.io/falkordb/falkordb-server@sha256:9b8203ce8cbc18bd93467516868f5f2038094e4c6ce70590121b32c24e4e6031",
+    "docker.io/falkordb/falkordb-server@sha256:d1c8bbc77bc36d5912f726801dad3753f1a0957b4f1d4f7625ae87faedd49918"
+  ],
+  "state": {
+    "status": "running",
+    "oom_killed": false,
+    "exit_code": 0,
+    "restart_count": 0
+  },
+  "limits": {
+    "nano_cpus": 500000000,
+    "memory_bytes": 536870912,
+    "memory_swap_bytes": 536870912,
+    "pids_limit": 256
+  },
+  "cgroup": {
+    "memory.current": "90079232",
+    "pids.max": "256",
+    "memory.max": "536870912",
+    "memory.swap.max": "0",
+    "cpu.max": "50000 100000"
+  },
+  "cgroup_memory": {
+    "sock": "0",
+    "anon": "57954304",
+    "shmem": "0",
+    "event_low": "0",
+    "event_high": "0",
+    "slab": "1085744",
+    "kernel_stack": "229376",
+    "pagetables": "491520",
+    "file": "29798400",
+    "event_oom_kill": "0",
+    "event_oom": "0",
+    "event_oom_group_kill": "0",
+    "event_max": "0",
+    "kernel": "2306048"
+  },
+  "published_ports": [
+    "6379/tcp -> 127.0.0.1:6380"
+  ],
+  "host_storage_mount": [
+    "/var/lib/wexa-benchmark-storage/falkordb /dev/loop2 ext4 1020702720 949952512 286720 rw,nosuid,nodev,noexec,relatime"
+  ],
+  "host_storage_usage": [
+    "0\t/var/lib/wexa-benchmark-storage/falkordb"
+  ],
+  "container_filesystem": [
+    "Filesystem      1B-blocks   Used Available Use% Mounted on",
+    "/dev/loop2     1020702720 286720 949952512   1% /data"
+  ],
+  "mounts": [
+    {
+      "type": "bind",
+      "source": "/var/lib/wexa-benchmark-storage/falkordb",
+      "name": null,
+      "destination": "/data",
+      "options": [
+        "noexec",
+        "nosuid",
+        "nodev",
+        "rbind"
+      ]
+    }
+  ],
+  "startup_log": {
+    "file": "falkordb-postrun-20260825T132652Z.log",
+    "sha256": "d10f31facebd9fafb4061a57f68c4f6520c307a333080a0db235bd4f5d2a1094",
+    "tail_lines": 500
+  }
+}

@@ -85,6 +85,11 @@ Raw and normalized rows are regenerated rather than committed.
 
 ## Results
 
-No benchmark numbers are present yet. Generated tables and charts will be derived only from
-the append-only raw result records. Missing or failed cells will remain explicit in the final
-matrix rather than being filled with estimates.
+The controlled-local official run is complete for ArangoDB, FalkorDB, Memgraph, and Neo4j
+Community. See the generated [official benchmark summary](results/generated/official-summary.md)
+for ingest, read latency, degree-stratified traversal, mixed workload, open-loop saturation,
+resource, query-plan, and connection-baseline results. Compressed raw ledgers and post-run
+container evidence are committed alongside it.
+
+CognoDB c0 and Neo4j Aura remain explicitly marked `missing` until fresh credentials and the
+exact Aura tier are supplied. No values are estimated or copied into missing cells.

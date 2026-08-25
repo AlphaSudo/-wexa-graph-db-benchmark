@@ -1,0 +1,55 @@
+1:C 25 Aug 2026 12:23:06.134 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:C 25 Aug 2026 12:23:06.135 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 25 Aug 2026 12:23:06.135 * Redis version=8.6.3, bits=64, commit=00000000, modified=1, pid=1, just started
+1:C 25 Aug 2026 12:23:06.135 * Configuration loaded
+1:M 25 Aug 2026 12:23:06.135 * monotonic clock: POSIX clock_gettime
+1:M 25 Aug 2026 12:23:06.137 * Running mode=standalone, port=6379.
+1:M 25 Aug 2026 12:23:06.454 * <graph> GraphBLAS JIT restrict to pre-jit kernels
+1:M 25 Aug 2026 12:23:06.456 * <graph> Enabled role change notification
+1:M 25 Aug 2026 12:23:06.456 * <graph> Starting up FalkorDB version 4.18.8.
+1:M 25 Aug 2026 12:23:06.459 * <graph> Thread pool created, using 1 threads.
+1:M 25 Aug 2026 12:23:06.459 * <graph> Maximum number of OpenMP threads set to 8
+1:M 25 Aug 2026 12:23:06.459 * <graph> Query backlog size: 1000
+1:M 25 Aug 2026 12:23:06.459 * Module 'graph' loaded from /var/lib/falkordb/bin/falkordb.so
+1:M 25 Aug 2026 12:23:06.460 * Server initialized
+1:M 25 Aug 2026 12:23:06.460 * Ready to accept connections tcp
+1:M 25 Aug 2026 12:23:06.460 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+1:signal-handler (1787660713) Received SIGTERM scheduling shutdown...
+1:M 25 Aug 2026 12:25:13.922 * User requested shutdown...
+1:M 25 Aug 2026 12:25:13.922 # Redis is now ready to exit, bye bye...
+1:C 25 Aug 2026 12:27:33.435 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:C 25 Aug 2026 12:27:33.435 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 25 Aug 2026 12:27:33.435 * Redis version=8.6.3, bits=64, commit=00000000, modified=1, pid=1, just started
+1:C 25 Aug 2026 12:27:33.435 * Configuration loaded
+1:M 25 Aug 2026 12:27:33.436 * monotonic clock: POSIX clock_gettime
+1:M 25 Aug 2026 12:27:33.438 * Running mode=standalone, port=6379.
+1:M 25 Aug 2026 12:27:33.521 * <graph> GraphBLAS JIT restrict to pre-jit kernels
+1:M 25 Aug 2026 12:27:33.522 * <graph> Enabled role change notification
+1:M 25 Aug 2026 12:27:33.522 * <graph> Starting up FalkorDB version 4.18.8.
+1:M 25 Aug 2026 12:27:33.525 * <graph> Thread pool created, using 1 threads.
+1:M 25 Aug 2026 12:27:33.525 * <graph> Maximum number of OpenMP threads set to 8
+1:M 25 Aug 2026 12:27:33.525 * <graph> Query backlog size: 1000
+1:M 25 Aug 2026 12:27:33.525 * Module 'graph' loaded from /var/lib/falkordb/bin/falkordb.so
+1:M 25 Aug 2026 12:27:33.526 * Server initialized
+1:M 25 Aug 2026 12:27:33.526 * Ready to accept connections tcp
+1:M 25 Aug 2026 12:27:33.526 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+1:signal-handler (1787660860) Received SIGTERM scheduling shutdown...
+1:M 25 Aug 2026 12:27:40.472 * User requested shutdown...
+1:M 25 Aug 2026 12:27:40.472 # Redis is now ready to exit, bye bye...
+1:C 25 Aug 2026 13:11:36.530 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:C 25 Aug 2026 13:11:36.532 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 25 Aug 2026 13:11:36.532 * Redis version=8.6.3, bits=64, commit=00000000, modified=1, pid=1, just started
+1:C 25 Aug 2026 13:11:36.532 * Configuration loaded
+1:M 25 Aug 2026 13:11:36.536 * monotonic clock: POSIX clock_gettime
+1:M 25 Aug 2026 13:11:36.539 * Running mode=standalone, port=6379.
+1:M 25 Aug 2026 13:11:36.593 * <graph> GraphBLAS JIT restrict to pre-jit kernels
+1:M 25 Aug 2026 13:11:36.603 * <graph> Enabled role change notification
+1:M 25 Aug 2026 13:11:36.628 * <graph> Starting up FalkorDB version 4.18.8.
+1:M 25 Aug 2026 13:11:36.633 * <graph> Thread pool created, using 1 threads.
+1:M 25 Aug 2026 13:11:36.633 * <graph> Maximum number of OpenMP threads set to 8
+1:M 25 Aug 2026 13:11:36.633 * <graph> Query backlog size: 1000
+1:M 25 Aug 2026 13:11:36.633 * Module 'graph' loaded from /var/lib/falkordb/bin/falkordb.so
+1:M 25 Aug 2026 13:11:36.635 * Server initialized
+1:M 25 Aug 2026 13:11:36.636 * Ready to accept connections tcp
+1:M 25 Aug 2026 13:11:36.636 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+1:M 25 Aug 2026 13:19:55.556 * Module fork exited pid: 20, retcode: 0, bysignal: 0
