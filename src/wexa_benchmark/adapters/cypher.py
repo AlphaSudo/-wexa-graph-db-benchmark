@@ -222,6 +222,8 @@ class CypherAdapter(GraphAdapter):
         return self._run("RETURN 1 AS value")
 
     def version(self) -> str:
+        if self.target_id == "cognodb-c0":
+            return "CognoDB Cloud (version not observable via Cypher)"
         if self._dialect == "memgraph":
             rows = self._run("SHOW VERSION")
             return str(rows[0].get("version", rows[0])) if rows else "not observable"
