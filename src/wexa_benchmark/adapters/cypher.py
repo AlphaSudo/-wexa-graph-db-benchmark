@@ -141,7 +141,7 @@ class CypherAdapter(GraphAdapter):
                 message = str(error).lower()
                 if "already exists" not in message and "equivalent" not in message:
                     raise
-        if self._dialect != "memgraph":
+        if self._dialect != "memgraph" and self.target_id != "cognodb-c0":
             self._run("CALL db.awaitIndexes($timeout)", {"timeout": int(self.timeout_seconds * 2)})
 
     def load_users(self, rows: Sequence[dict[str, Any]]) -> None:
