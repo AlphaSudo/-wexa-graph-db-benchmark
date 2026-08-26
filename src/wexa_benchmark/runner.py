@@ -104,8 +104,12 @@ def run_target(
         _measure_reads(config, dataset, adapter, writer)
         _measure_closed_loop(config, dataset, adapter, writer, run_id)
         _measure_open_loop(config, dataset, adapter, writer, run_id)
-        final_counts = adapter.counts()
-        final_integrity = adapter.integrity()
+        final_counts = _unmeasured_with_reconnect(
+            adapter, writer, adapter.counts, "post_run_counts"
+        )
+        final_integrity = _unmeasured_with_reconnect(
+            adapter, writer, adapter.integrity, "post_run_integrity"
+        )
         expected_counts = _expected_counts(dataset)
         expected_integrity = _expected_integrity(dataset)
         final_passed = final_counts == expected_counts and final_integrity == expected_integrity
@@ -664,7 +668,12 @@ def _validate_mixed_counts(
     concurrency: int,
 ) -> None:
     expected = _expected_counts(dataset)
-    actual = adapter.counts()
+    actual = _unmeasured_with_reconnect(
+        adapter,
+        writer,
+        adapter.counts,
+        f"{model}_{mix}_{concurrency}_counts",
+    )
     passed = actual == expected
     writer.append(
         "mixed_count_validation",
@@ -677,6 +686,29 @@ def _validate_mixed_counts(
     )
     if not passed:
         raise ValueError(f"Graph counts changed during {model} {mix} at concurrency {concurrency}")
+
+
+def _unmeasured_with_reconnect(
+    adapter: GraphAdapter,
+    writer: ResultWriter,
+    operation: Callable[[], Any],
+    phase: str,
+) -> Any:
+    try:
+        return operation()
+    except Exception as error:
+        if classify_error(error) != "connection":
+            raise
+        adapter.close()
+        attempts = _connect_when_ready(adapter, writer, readiness_seconds=120.0)
+        writer.append(
+            "validation_reconnect",
+            phase=phase,
+            attempts=attempts,
+            triggering_error_type=type(error).__name__,
+            triggering_error_category="connection",
+        )
+        return operation()
 
 
 def _expected_counts(dataset: PreparedDataset) -> dict[str, int]:
