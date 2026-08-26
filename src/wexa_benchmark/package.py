@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import gzip
+import hashlib
 import shutil
 from pathlib import Path
 from typing import Any
@@ -21,7 +22,11 @@ def package_results(config: AppConfig, repository_root: Path) -> dict[str, Any]:
             continue
         destination = source.with_suffix(source.suffix + ".gz")
         if destination.exists():
-            raise FileExistsError(f"Refusing to overwrite packaged result: {destination}")
+            with gzip.open(destination, "rb") as archived:
+                archived_source_sha256 = _sha256_stream(archived)
+            if archived_source_sha256 != sha256_file(source):
+                raise FileExistsError(f"Existing package does not match its source: {destination}")
+            continue
         with (
             source.open("rb") as input_stream,
             destination.open("wb") as output_stream,
@@ -44,3 +49,10 @@ def package_results(config: AppConfig, repository_root: Path) -> dict[str, Any]:
             }
         )
     return {"config_sha256": config.sha256, "packaged": packaged}
+
+
+def _sha256_stream(stream: Any) -> str:
+    digest = hashlib.sha256()
+    while chunk := stream.read(1024 * 1024):
+        digest.update(chunk)
+    return digest.hexdigest()

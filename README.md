@@ -1,7 +1,7 @@
 # CognoDB and Graph Database Benchmark
 
 Candidate: Ahmed Yasser Morra
-Status: benchmark harness implementation; no performance claim is published until correctness and audit gates pass.
+Status: controlled-local and CognoDB c0 official results complete; AuraDB remains pending.
 
 This repository benchmarks CognoDB c0 against four or more graph databases using the same
 MovieLens graph and logical workloads. It deliberately separates two questions:
@@ -91,5 +91,6 @@ for ingest, read latency, degree-stratified traversal, mixed workload, open-loop
 resource, query-plan, and connection-baseline results. Compressed raw ledgers and post-run
 container evidence are committed alongside it.
 
-CognoDB c0 and Neo4j Aura remain explicitly marked `missing` until fresh credentials and the
-exact Aura tier are supplied. No values are estimated or copied into missing cells.
+CognoDB c0 is now included as a managed-service result. Neo4j Aura remains explicitly marked
+`missing` until credentials and the exact Aura tier are supplied. No values are estimated or
+copied into missing cells.

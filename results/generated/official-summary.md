@@ -6,7 +6,7 @@ Generated from append-only raw JSONL. Missing cells are never estimated.
 
 | Target | Status | End-to-ready s | All nodes/s | Relationships/s |
 |---|---|---:|---:|---:|
-| cognodb-c0 | missing | missing | missing | missing |
+| cognodb-c0 | complete | 580.690 | 17.827 | 173.649 |
 | neo4j-aura-free | missing | missing | missing | missing |
 | neo4j-ce-capped | complete | 218.569 | 47.363 | 461.346 |
 | memgraph-capped | complete | 291.171 | 35.553 | 346.312 |
@@ -17,6 +17,13 @@ Generated from append-only raw JSONL. Missing cells are never estimated.
 
 | Target | Workload | p50 ms | p95 ms | p99 ms | p50 CI95 ms | CV | Successes | Failures |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
+| cognodb-c0 | aggregation | 379.925 | 436.359 | 454.571 | 377.332-381.387 | 0.068 | 300 | 0 |
+| cognodb-c0 | filtered_lookup | 145.009 | 151.473 | 155.269 | 144.562-145.726 | 0.025 | 300 | 0 |
+| cognodb-c0 | hop_1 | 141.831 | 318.819 | 515.050 | 139.241-144.999 | 0.409 | 300 | 0 |
+| cognodb-c0 | hop_2 | 345.776 | 1155.979 | 1700.102 | 267.738-399.494 | 0.767 | 300 | 0 |
+| cognodb-c0 | hop_3 | 4201.546 | 4756.912 | 4937.562 | 4168.085-4258.019 | 0.108 | 300 | 0 |
+| cognodb-c0 | point_lookup | 133.004 | 136.651 | 139.039 | 132.721-133.297 | 0.059 | 300 | 0 |
+| cognodb-c0 | return_1 | 133.165 | 137.319 | 219.313 | 132.825-133.402 | 0.122 | 300 | 0 |
 | neo4j-ce-capped | aggregation | 99.578 | 288.762 | 395.460 | 98.483-100.645 | 0.542 | 300 | 0 |
 | neo4j-ce-capped | filtered_lookup | 20.531 | 56.281 | 80.345 | 20.136-21.028 | 0.676 | 300 | 0 |
 | neo4j-ce-capped | hop_1 | 18.098 | 82.464 | 159.503 | 14.687-21.806 | 1.011 | 300 | 0 |
@@ -50,6 +57,18 @@ Generated from append-only raw JSONL. Missing cells are never estimated.
 
 | Target | Hop/bucket | p50 ms | p95 ms | p99 ms | Valid N | Failures |
 |---|---|---:|---:|---:|---:|---:|
+| cognodb-c0 | hop_1/low | 134.528 | 138.739 | 141.159 | 75 | 0 |
+| cognodb-c0 | hop_1/medium | 137.241 | 144.361 | 156.681 | 75 | 0 |
+| cognodb-c0 | hop_1/high | 147.565 | 159.975 | 161.886 | 75 | 0 |
+| cognodb-c0 | hop_1/hub | 174.991 | 513.776 | 524.803 | 75 | 0 |
+| cognodb-c0 | hop_2/low | 164.315 | 186.345 | 217.950 | 75 | 0 |
+| cognodb-c0 | hop_2/medium | 211.811 | 345.754 | 365.163 | 75 | 0 |
+| cognodb-c0 | hop_2/high | 501.143 | 718.904 | 773.819 | 75 | 0 |
+| cognodb-c0 | hop_2/hub | 942.989 | 1667.090 | 1972.006 | 75 | 0 |
+| cognodb-c0 | hop_3/low | 3683.153 | 4229.209 | 4449.697 | 75 | 0 |
+| cognodb-c0 | hop_3/medium | 4060.499 | 4544.686 | 4625.928 | 75 | 0 |
+| cognodb-c0 | hop_3/high | 4304.153 | 4554.914 | 4800.193 | 75 | 0 |
+| cognodb-c0 | hop_3/hub | 4540.919 | 4899.643 | 5581.357 | 75 | 0 |
 | neo4j-ce-capped | hop_1/low | 7.437 | 26.287 | 50.039 | 75 | 0 |
 | neo4j-ce-capped | hop_1/medium | 11.644 | 17.292 | 25.108 | 75 | 0 |
 | neo4j-ce-capped | hop_1/high | 25.624 | 44.037 | 67.392 | 75 | 0 |
@@ -103,6 +122,17 @@ Generated from append-only raw JSONL. Missing cells are never estimated.
 
 | Target | Model | Mix | Concurrency | Offered QPS | Achieved QPS | p50/p95/p99 ms | R/W attempts | Errors/timeouts |
 |---|---|---|---:|---:|---:|---:|---:|---:|
+| cognodb-c0 | closed_loop | read-heavy | 1 | missing | 3.779 | 141.595/1001.884/1207.151 | 211/16 | 0/0 |
+| cognodb-c0 | closed_loop | read-heavy | 5 | missing | 6.491 | 257.990/3468.533/4684.755 | 384/27 | 0/0 |
+| cognodb-c0 | closed_loop | read-heavy | 10 | missing | 5.041 | 445.492/9660.462/15196.844 | 312/14 | 1/0 |
+| cognodb-c0 | closed_loop | read-heavy | 20 | missing | 3.266 | 799.475/9370.010/19717.748 | 290/8 | 35/0 |
+| cognodb-c0 | closed_loop | read-heavy | 40 | missing | 6.926 | 1099.868/12226.032/18770.309 | 565/25 | 56/0 |
+| cognodb-c0 | closed_loop | mixed | 1 | missing | 4.146 | 138.578/924.903/1130.345 | 182/67 | 0/0 |
+| cognodb-c0 | closed_loop | mixed | 5 | missing | 8.162 | 226.868/2957.832/4474.825 | 395/100 | 0/0 |
+| cognodb-c0 | closed_loop | mixed | 10 | missing | 5.485 | 432.784/7902.358/12107.102 | 297/72 | 3/0 |
+| cognodb-c0 | closed_loop | mixed | 20 | missing | 5.172 | 690.583/10595.983/18681.137 | 308/74 | 23/0 |
+| cognodb-c0 | closed_loop | mixed | 40 | missing | 7.320 | 1101.168/7598.550/18108.984 | 697/179 | 289/0 |
+| cognodb-c0 | open_loop | mixed | 40 | 100 | 5.730 | 58497.800/115889.493/123178.850 | 4801/1199 | 4931/0 |
 | neo4j-ce-capped | closed_loop | read-heavy | 1 | missing | 29.032 | 16.923/100.127/226.386 | 1652/90 | 0/0 |
 | neo4j-ce-capped | closed_loop | read-heavy | 5 | missing | 21.322 | 119.076/749.510/1127.511 | 1202/85 | 0/0 |
 | neo4j-ce-capped | closed_loop | read-heavy | 10 | missing | 22.647 | 295.424/1286.695/2239.431 | 1296/70 | 0/0 |
@@ -163,6 +193,10 @@ Generated from append-only raw JSONL. Missing cells are never estimated.
 
 | Target | Workload | Captured | Plan operators |
 |---|---|---|---|
+| cognodb-c0 | point_lookup | True | ProduceResults > NodeByLabelScan |
+| cognodb-c0 | filtered_lookup | True | ProduceResults > NodeIndexSeek |
+| cognodb-c0 | hop_3 | True | ProduceResults > Filter > Expand > Expand > NodeByLabelScan > Projection > Expand > AllNodeScan |
+| cognodb-c0 | aggregation | True | ProduceResults > Expand > AllNodeScan |
 | neo4j-ce-capped | point_lookup | True | ProduceResults@neo4j > Projection@neo4j > CacheProperties@neo4j > NodeUniqueIndexSeek@neo4j |
 | neo4j-ce-capped | filtered_lookup | True | ProduceResults@neo4j > Sort@neo4j > Projection@neo4j > NodeIndexSeek@neo4j |
 | neo4j-ce-capped | hop_3 | True | ProduceResults@neo4j > Sort@neo4j > Distinct@neo4j > Filter@neo4j > Expand(All)@neo4j > Distinct@neo4j > Filter@neo4j > Expand(All)@neo4j > Filter@neo4j > Expand(All)@neo4j > NodeUniqueIndexSeek@neo4j |
@@ -186,7 +220,7 @@ These client-observed values are not subtracted from workload latency.
 
 | Target | Fresh connect p50/p95 ms | Warm pooled RETURN 1 p50/p95 ms | Failures |
 |---|---:|---:|---:|
-| cognodb-c0 | missing/missing | missing/missing | missing/missing |
+| cognodb-c0 | 559.218/563.558 | 133.165/137.319 | 0/0 |
 | neo4j-aura-free | missing/missing | missing/missing | missing/missing |
 | neo4j-ce-capped | 2077.218/2092.899 | 6.326/41.858 | 0/0 |
 | memgraph-capped | 2025.514/2057.582 | 2.024/4.938 | 0/0 |
